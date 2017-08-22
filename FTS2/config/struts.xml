@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置 -->
+	<include file="struts_config.xml"></include>
+
+	<package name="index" extends="struts-default" namespace="/">
+		<!-- UserAction 用户操作 -->
+		<action name="User_*" class="cn.zqrc.fts2.pro.action.UserAction"
+			method="{1}">
+			<result name="index">/WEB-INF/page/base/index.jsp</result>
+			<result name="login">/WEB-INF/page/base/login.jsp</result>
+			<result name="addStaff">/WEB-INF/page/brand/addStaff.jsp</result>
+			<result name="updateStaff">/WEB-INF/page/brand/updateStaff.jsp</result>
+			<result name="userSetting">/WEB-INF/page/base/userSetting.jsp</result>
+		</action>
+		<!-- 导航栏 -->
+		<action name="Bar_*" class="cn.zqrc.fts2.pro.action.BarAction"
+			method="{1}">
+			<result name="index">/WEB-INF/page/base/index.jsp</result>
+			<result name="login">/WEB-INF/page/base/login.jsp</result>
+			<result name="staffSetting">/WEB-INF/page/admin/staffSetting.jsp</result>
+			<result name="project_my">/WEB-INF/page/base/project_my.jsp</result>
+			<result name="Brand">/WEB-INF/page/brand/brand.jsp</result>
+			<result name="project_over">/WEB-INF/page/staff/project_over.jsp</result>
+			
+			<result name="branking">/WEB-INF/page/staff/project_branking.jsp</result>
+			<result name="brankOver">/WEB-INF/page/staff/project_brank_over.jsp</result>
+			<result name="biding">/WEB-INF/page/staff/project_biding.jsp</result>
+			<result name="bidOver">/WEB-INF/page/staff/project_bid_over.jsp</result>
+			<result name="businesing">/WEB-INF/page/staff/project_businesing.jsp</result>
+			<result name="businesOver">/WEB-INF/page/staff/project_busines_over.jsp</result>
+			<result name="clearing">/WEB-INF/page/staff/project_clearing.jsp</result>
+			<result name="clearOver">/WEB-INF/page/staff/project_clear_over.jsp</result>
+			<result name="insuing">/WEB-INF/page/staff/project_insuing.jsp</result>
+			<result name="insuOver">/WEB-INF/page/staff/project_insu_over.jsp</result>
+			<result name="insping">/WEB-INF/page/staff/project_insping.jsp</result>
+			<result name="inspOver">/WEB-INF/page/staff/project_insp_over.jsp</result>
+			<result name="logising">/WEB-INF/page/staff/project_logising.jsp</result>
+			<result name="logisOver">/WEB-INF/page/staff/project_logis_over.jsp</result>
+			<result name="search">/WEB-INF/page/staff/project_search.jsp</result>
+			<result name="searchView">/WEB-INF/page/staff/project_search.jsp</result>
+		</action>
+		<!-- 项目 -->
+		<action name="Project_*" class="cn.zqrc.fts2.pro.action.ProjectAction"
+			method="{1}">
+			<param name="savePath">/upload</param>
+			<result name="login">/WEB-INF/page/base/login.jsp</result>
+			<result name="toSubmitProject">/WEB-INF/page/admin/submit_project.jsp</result>
+			<result name="submitProject">/WEB-INF/page/admin/submit_project.jsp</result>
+			<result name="creatProject">/WEB-INF/page/brand/creat_project.jsp</result>
+			<result name="toOverProject">/WEB-INF/page/base/project_my.jsp</result>
+		</action>
+		<!-- 品牌 -->
+		<action name="Brand_*" class="cn.zqrc.fts2.pro.action.BrandAction"
+			method="{1}">
+			<result name="addBrand">/WEB-INF/page/brand/addBrand.jsp</result>
+			<result name="updateBrand">/WEB-INF/page/brand/updateBrand.jsp</result>
+			<result name="projectBrand">/WEB-INF/page/brand/project_brand.jsp</result>
+		</action>
+		<!-- 报关 -->
+		<action name="Clear_*" class="cn.zqrc.fts2.pro.action.ClearAction"
+			method="{1}">
+			<param name="savePath">/upload</param>
+			<result name="projectClear">/WEB-INF/page/admin/submit_clear.jsp</result>
+			<result name="details_clear">/WEB-INF/page/admin/details_clear.jsp</result>
+			<result name="project_clearing" type="chain">Bar_toClearing</result>
+		</action>
+		<!-- 商检 -->
+		<action name="Insp_*" class="cn.zqrc.fts2.pro.action.InspAction"
+			method="{1}">
+			<param name="savePath">/upload</param>
+			<result name="showprojectInsp">/WEB-INF/page/admin/details_insp.jsp</result>
+			<result name="projectInsp">/WEB-INF/page/admin/submit_insp.jsp</result>
+			<result name="projectInsping" type="chain">Bar_toInsping</result>
+		</action>
+		<!-- 招投标详情 -->
+		<action name="Bid_*" class="cn.zqrc.fts2.pro.action.BidAction"
+			method="{1}">
+			<param name="savePath">/upload</param>
+			<result name="details_bid">/WEB-INF/page/admin/details_bid.jsp</result>
+			<result name="project_bid">/WEB-INF/page/admin/submit_bid.jsp</result>
+			<result name="project_biding" type="chain">Bar_toBiding</result>
+		</action>
+		<!-- 保险 -->
+		<action name="Insu_*" class="cn.zqrc.fts2.pro.action.InsuAction"
+			method="{1}">
+			<param name="savePath">/upload</param>
+			<result name="project_insp">/WEB-INF/page/admin/submit_insu.jsp</result>
+			<result name="project_insping" type="chain">Bar_toInsuing</result>
+			<result name="detail_insu">/WEB-INF/page/admin/details_insu.jsp</result>
+		</action>
+		<!-- 机电证 -->
+		<action name="Busines_*" class="cn.zqrc.fts2.pro.action.BusinesAction"
+			method="{1}">
+			<param name="savePath">/upload</param>
+			<result name="project_Busines">/WEB-INF/page/admin/submit_busines.jsp</result>
+			<result name="project_Businesing" type="chain">Bar_toBusinesing</result>
+			<result name="details_busines">/WEB-INF/page/admin/detail_busines.jsp</result>
+		</action>
+		<!-- 银行 -->
+		<action name="Brank_*" class="cn.zqrc.fts2.pro.action.BrankAction"
+			method="{1}">
+			<param name="savePath">/upload</param>
+			<result name="showprojectbrank">/WEB-INF/page/admin/details_brank.jsp</result>
+			<result name="projectbrank">/WEB-INF/page/admin/submit_brank.jsp</result>
+			<result name="projectbranking" type="chain">Bar_toBranking</result>
+		</action>
+		
+		<!--物流 -->
+		<action name="Logis_*" class="cn.zqrc.fts2.pro.action.LogisAction"
+			method="{1}">
+			<param name="savePath">/upload</param>
+			<result name="showProjectlogis">/WEB-INF/page/admin/details_logins.jsp</result>
+			<result name="projectlogis">/WEB-INF/page/admin/submit_logis.jsp</result>
+			<result name="projectloginsing">/WEB-INF/page/admin/submit_logis.jsp</result>
+		</action>
+	</package>
+	
+	<package name="default" namespace="/" extends="json-default">
+			<!-- 消息提醒 -->
+		<action name="Message_*" class="cn.zqrc.fts2.pro.action.MessageAction"
+			method="{1}">
+			<result name="save" type="json"></result>
+			<result name="delectMessage">/WEB-INF/page/staff/project_message.jsp</result>
+			<result name="userMessage" >/WEB-INF/page/staff/project_message.jsp</result>
+		</action>
+	</package>
+</struts>    

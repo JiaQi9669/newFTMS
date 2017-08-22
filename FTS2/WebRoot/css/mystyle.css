@@ -1,0 +1,29 @@
+.baseInfo div{
+    display: inline-block;
+}
+.baseInfo label{
+	width: 120px;
+}
+.baseInfo p{
+	width: 120px;
+  	display: inline-block;
+  	margin-right: 30px;
+}
+
+.form-group label{
+	width: 110px;
+	margin-bottom: 15px;
+}
+.form-group input{
+	margin-right: 50px;
+}
+.form-group a{
+	margin-right: 100px;
+}
+
+.form-textarea label{
+    width: 100px;
+}
+.form-textarea textarea{
+    width: 100%;
+}
