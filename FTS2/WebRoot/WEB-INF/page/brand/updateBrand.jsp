@@ -38,6 +38,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</td>
 						</tr>
 						<tr>
+							<td>负责人：</td>
+							<td>
+								<select class="form-control" name="brandUserId" style="height:100%;">
+									<s:iterator value="users" status="indexs">
+										<option <c:if test="${brand.user.id == id }">selected="selected"</c:if> value="${id }">${realName }</option>
+									</s:iterator>
+								</select>
+							</td>
+						</tr>
+						<tr>
 							<td>备注：</td>
 							<td>
 								<input type="text" value="${brand.info }" class="form-control" name="info" placeholder="info">

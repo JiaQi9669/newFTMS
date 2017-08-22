@@ -1,5 +1,7 @@
 package cn.zqrc.fts2.pro.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,6 +34,10 @@ public class UserServiceImpl extends BaseDaoImpl<User> implements UserService{
 	 */
 	public User findByUserName(String userName) {
 		return (User) getSession().createQuery("from User where userName = ?").setString(0, userName).uniqueResult();
+	}
+
+	public List<User> findCreat() {
+		return getSession().createQuery("from User where role = 4").list();
 	}
 
 }

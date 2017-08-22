@@ -1,5 +1,7 @@
 package cn.zqrc.fts2.pro.service;
 
+import java.util.List;
+
 import cn.zqrc.fts2.base.BaseDao;
 import cn.zqrc.fts2.pro.vo.User;
 
@@ -23,4 +25,6 @@ public interface UserService extends BaseDao<User>{
 	 * JiaQi
 	 */
 	User findByUserName(String userName);
+
+	List<User> findCreat();
 }
