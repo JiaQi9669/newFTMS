@@ -43,18 +43,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<table class="table table-striped table-bordered table-hover table-condensed text-center">
 					<thead>
 					<tr>
-						<td colspan="10" class="text-left">项目列表</td>
+						<td colspan="10" class="text-left">我的项目</td>
 					</tr>
 				</thead>
 				
 			<thead>
 					<tr class="info ">
-					<td>序号</td>
+						<td>序号</td>
 						<td>内部编号</td>
 						<td>项目名称</td>
 						<td>品名</td>
 						<td>申报日期</td>
-						<td>状态</td>
+						<td>操作</td>
 					</tr>
 			</thead>
 				
@@ -67,12 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>${productName }</td>
 						<td>${creatTime }</td>
 						<td>
-							<c:if test="${isOver == 2 }">
-								已完结
-							</c:if>
-							<c:if test="${isOver == 1 }">
-								在执行
-							</c:if>
+							<a id="n11" href="Project_toSubmitCreatProject?id=${id }" class="btn btn-default rs-modalBtn" type="button">详情</a>
 						</td>
 					</tr>
 				</s:iterator>
@@ -99,7 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					     	</a>
 						</s:if>
 						<s:else>
-					  		<a href="Brand_projectBrand?pageNum=1" aria-label="Previous">
+					  		<a href="Bar_toProjectMy?pageNum=1" aria-label="Previous">
 					  			<span aria-hidden="true">首页</span>
 					  		</a>
 				  		</s:else>
@@ -107,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  	<!-- 上页键 -->
 				    <li>
 				    	<s:if test="pageBean.currentPage-1 > 0">
-					    	<a href="Brand_projectBrand?pageNum=${pageBean.currentPage-1 }" href="#" aria-label="Previous">
+					    	<a href="Bar_toProjectMy?pageNum=${pageBean.currentPage-1 }" href="#" aria-label="Previous">
 					    		<span aria-hidden="true">&laquo;</span>
 					    	</a>
 				    	</s:if>
@@ -123,13 +118,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    		<li><a>${pageNums }</a></li>
 				    	</c:if>
 				    	<c:if test="${pageBean.currentPage != pageNums }">
-				    		<li><a href="Brand_projectBrand?pageNum=${pageNums }">${pageNums }</a></li>
+				    		<li><a href="Bar_toProjectMy?pageNum=${pageNums }">${pageNums }</a></li>
 				    	</c:if>
 				    </s:iterator>
 					<!-- 下页键 -->
 				    <li>
 				    	<s:if test="pageBean.currentPage+1 <= pageBean.pageCount">
-					    	<a href="Brand_projectBrand?pageNum=${pageBean.currentPage+1 }" aria-label="Next">
+					    	<a href="Bar_toProjectMy?pageNum=${pageBean.currentPage+1 }" aria-label="Next">
 					    		<span aria-hidden="true">&raquo;</span>
 					    	</a>
 				    	</s:if>
@@ -147,7 +142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					     	</a>
 						</s:if>
 						<s:else>
-							<a href="Brand_projectBrand?pageNum=${pageBean.pageCount }" aria-label="Previous">
+							<a href="Bar_toProjectMy?pageNum=${pageBean.pageCount }" aria-label="Previous">
 					     		<span aria-hidden="true">尾页</span>
 					     	</a>
 						</s:else>

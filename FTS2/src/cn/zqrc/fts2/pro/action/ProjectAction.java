@@ -366,10 +366,18 @@ public class ProjectAction extends BaseAction<Project>{
 		inspService.save(insp);
 
 		ActionContext.getContext().getValueStack().set("msg", "*立项成功！");
-		return "creatProject";
+		return "submitProject";
 	}
-
-
+	
+	/**
+	 * 
+	 */
+	public String toSubmitCreatProject(){
+		Project project = projectService.getById(getModel().getId());
+		ActionContext.getContext().getValueStack().set("project", project);
+		return "toSubmitCreatProject";
+	}
+	
 	/**
 	 * 跳转提交项目信息
 	 */
@@ -530,6 +538,8 @@ public class ProjectAction extends BaseAction<Project>{
 		project.setInMoney8(getModel().getInMoney8());
 		project.setInMoney9(getModel().getInMoney9());
 		project.setInMoney10(getModel().getInMoney10());
+		project.setMonkeyInfo(getModel().getMonkeyInfo());
+		
 		//		 开票备注
 		project.getBrank().setTTTime1(getModel().getBrank().getTTTime1());//电汇/信用证
 		project.getBrank().setOutMoney1(getModel().getBrank().getOutMoney1());
@@ -681,9 +691,23 @@ public class ProjectAction extends BaseAction<Project>{
 		project.getLogis().setInWarehouseMoney(getModel().getLogis().getInWarehouseMoney());
 		project.setOtherMoney(getModel().getOtherMoney());
 
+		bidService.update(project.getBid());
+		brankService.update(project.getBrank());
+		brandService.update(project.getBrand());
+		logisService.update(project.getLogis());
+		inspService.update(project.getInsp());
+		insuService.update(project.getInsu());
+		businesService.update(project.getBusines());
+		clearService.update(project.getClear());
+
 		projectService.update(project);
 		ActionContext.getContext().getValueStack().set("project", project);
-
+		
+		if(getAdmins().getRole()==2){
+			return "submitProject";
+		}else if(getAdmins().getRole() == 4){
+			return "submitCrearProject";
+		}
 		return "submitProject";
 	}
 
@@ -693,7 +717,12 @@ public class ProjectAction extends BaseAction<Project>{
 		project.setIsOver(2);
 		projectService.update(project);
 		ActionContext.getContext().getValueStack().set("project", project);
-		return "toOverProject";
+		if(getAdmins().getRole()==2){
+			return "submitProject";
+		}else if(getAdmins().getRole() == 4){
+			return "submitCrearProject";
+		}
+		return "submitProject";
 	}
 
 }

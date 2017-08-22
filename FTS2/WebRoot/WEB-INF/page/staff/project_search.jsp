@@ -80,8 +80,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>${productName }</td>
 						<td>${clear.portDate }</td>
 						<td>
-							<s:if test="%{#{isOver}=='1'}">未完结</s:if>
-							 <s:else>已完结</s:else>
+							<c:if test="${isOver == 2 }">
+								已完结
+							</c:if>
+							<c:if test="${isOver == 1 }">
+								在执行
+							</c:if>
 						</td>
 						<!-- <td>
 							<input class="btn btn-default" type="submit" value="提交">

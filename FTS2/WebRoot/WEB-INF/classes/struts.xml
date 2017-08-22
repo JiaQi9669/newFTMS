@@ -43,6 +43,10 @@
 			<result name="logisOver">/WEB-INF/page/staff/project_logis_over.jsp</result>
 			<result name="search">/WEB-INF/page/staff/project_search.jsp</result>
 			<result name="searchView">/WEB-INF/page/staff/project_search.jsp</result>
+			
+			<result name="welcome">/WEB-INF/page/base/welcome.jsp</result>
+			
+			<result name="project_my_creat">/WEB-INF/page/base/project_my_creat.jsp</result>
 		</action>
 		<!-- 项目 -->
 		<action name="Project_*" class="cn.zqrc.fts2.pro.action.ProjectAction"
@@ -50,9 +54,11 @@
 			<param name="savePath">/upload</param>
 			<result name="login">/WEB-INF/page/base/login.jsp</result>
 			<result name="toSubmitProject">/WEB-INF/page/admin/submit_project.jsp</result>
-			<result name="submitProject">/WEB-INF/page/admin/submit_project.jsp</result>
+			<result name="submitProject" type="chain">Bar_toProjectMy</result>
 			<result name="creatProject">/WEB-INF/page/brand/creat_project.jsp</result>
-			<result name="toOverProject">/WEB-INF/page/base/project_my.jsp</result>
+			<result name="toOverProject" type="chain">Bar_toProjectMy</result>
+			<result name="submitCrearProject" type="chain">Bar_toCreatProjectMy</result>
+			<result name="toSubmitCreatProject">/WEB-INF/page/admin/submit_project_creat.jsp</result>
 		</action>
 		<!-- 品牌 -->
 		<action name="Brand_*" class="cn.zqrc.fts2.pro.action.BrandAction"
@@ -60,7 +66,9 @@
 			<result name="addBrand">/WEB-INF/page/brand/addBrand.jsp</result>
 			<result name="updateBrand">/WEB-INF/page/brand/updateBrand.jsp</result>
 			<result name="projectBrand">/WEB-INF/page/brand/project_brand.jsp</result>
+			<result name="toaddBrand" type="chain">Bar_toBrand</result>
 		</action>
+		
 		<!-- 报关 -->
 		<action name="Clear_*" class="cn.zqrc.fts2.pro.action.ClearAction"
 			method="{1}">
@@ -68,7 +76,9 @@
 			<result name="projectClear">/WEB-INF/page/admin/submit_clear.jsp</result>
 			<result name="details_clear">/WEB-INF/page/admin/details_clear.jsp</result>
 			<result name="project_clearing" type="chain">Bar_toClearing</result>
+			<result name="project_clear_over" type="chain">Bar_toClearOver</result>
 		</action>
+		
 		<!-- 商检 -->
 		<action name="Insp_*" class="cn.zqrc.fts2.pro.action.InspAction"
 			method="{1}">
@@ -92,6 +102,7 @@
 			<result name="project_insp">/WEB-INF/page/admin/submit_insu.jsp</result>
 			<result name="project_insping" type="chain">Bar_toInsuing</result>
 			<result name="detail_insu">/WEB-INF/page/admin/details_insu.jsp</result>
+			<result name="toproject_insping" type="chain">Bar_toInsuing</result>
 		</action>
 		<!-- 机电证 -->
 		<action name="Busines_*" class="cn.zqrc.fts2.pro.action.BusinesAction"
@@ -100,6 +111,7 @@
 			<result name="project_Busines">/WEB-INF/page/admin/submit_busines.jsp</result>
 			<result name="project_Businesing" type="chain">Bar_toBusinesing</result>
 			<result name="details_busines">/WEB-INF/page/admin/detail_busines.jsp</result>
+			<result name="toproject_Businesing" type="chain">Bar_toBusinesing</result>
 		</action>
 		<!-- 银行 -->
 		<action name="Brank_*" class="cn.zqrc.fts2.pro.action.BrankAction"
@@ -117,6 +129,7 @@
 			<result name="showProjectlogis">/WEB-INF/page/admin/details_logins.jsp</result>
 			<result name="projectlogis">/WEB-INF/page/admin/submit_logis.jsp</result>
 			<result name="projectloginsing">/WEB-INF/page/admin/submit_logis.jsp</result>
+			<result name="toprojectloginsing" type="chain">Bar_toLogising</result>
 		</action>
 	</package>
 	

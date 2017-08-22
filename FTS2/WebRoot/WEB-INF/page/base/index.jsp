@@ -226,6 +226,9 @@ body,html {
 						<li>
 							<a href="Bar_toBrand" target="center">品牌管理</a>
 						</li>
+						<li>
+							<a href="Bar_toCreatProjectMy" target="center">我的项目</a>
+						</li>
 					</c:if>					
 				</ul>
 			</div> <!--Apply  -->
@@ -328,25 +331,25 @@ body,html {
 				<span class="glyphicon glyphicon-briefcase"></span>高级查询
 			</div> <div class="rs-detailed">
 				<ul>
-					<li><a href="Bar_search" target="center">增删改查</a></li>
+					<li><a href="Bar_search" target="center">项目查询</a></li>
 					<!-- <li><a href="#" target="center">报名人数管理</a></li> -->
 				</ul>
 			</div> <!--Teacher  -->
 			</c:if>
 			
-			<c:if test="${admins.role == 2 || admins.role == 1}">
 			<div class="rs-summary">
 				<span class="glyphicon glyphicon-inbox"></span>基本设置
 			</div>
 			<div class="rs-detailed">
 				<ul>
+			<c:if test="${admins.role == 2 || admins.role == 1}">
 					<li><a href="Bar_staffSetting" target="center">员工设置</a>
 					</li>
+			</c:if>
 					<li><a href="User_toUserSetting" target="center">个人设置</a>
 					</li>
 				</ul>
 			</div> 
-			</c:if>
 			
 			<!--Student  --> <!--<div class="rs-summary">
 				<span class="glyphicon glyphicon-tasks"></span>学生管理
@@ -382,7 +385,7 @@ body,html {
 			</div>--> <!--end  --> </span>
 		<div class="embed-responsive" id="rs-frameCenter">
 			<iframe class="embed-responsive-item" name="center"
-				src="Bar_toProjectMy" width="100%" height="100%" frameborder="0"></iframe>
+				src="Bar_toWelcome" width="100%" height="100%" frameborder="0"></iframe>
 		</div>
 	</div>
 	<div id="rs-pageFooter">

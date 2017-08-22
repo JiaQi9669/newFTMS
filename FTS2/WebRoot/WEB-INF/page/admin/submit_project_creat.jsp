@@ -2651,7 +2651,7 @@ input[type=file] {
 				</div>
 			</div>
 		</div>
-		<c:if test="${project.isOver == 1}">
+		<c:if test="${project.brand.user.id == admins.id && project.isOver == 1}">
 			<input class="btn btn-primary" value="提交" type="submit"> <a class="btn btn-primary" href="Project_toOverProject?id=${project.id }">完结</a>
 		</c:if>
 	</form>

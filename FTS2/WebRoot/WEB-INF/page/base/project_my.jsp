@@ -67,7 +67,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>${productName }</td>
 						<td>${creatTime }</td>
 						<td>
-							<a id="n11" href="Project_toSubmitProject?id=${id }" class="btn btn-default rs-modalBtn" type="button">提交工作</a>
+							<a id="n11" href="Project_toSubmitProject?id=${id }" class="btn btn-default rs-modalBtn" type="button">详情</a>
 						</td>
 					</tr>
 				</s:iterator>

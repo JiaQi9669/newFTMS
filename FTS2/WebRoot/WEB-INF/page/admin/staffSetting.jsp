@@ -80,6 +80,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<c:if test="${role ==3}">
 							<td>员工</td>
 						</c:if>
+						<c:if test="${role ==4}">
+							<td>立项人</td>
+						</c:if>
 						<td>
 							<a id="n11" href="User_toUpdateStaff?id=${id }" class="btn btn-default rs-modalBtn" type="button">修改</a>
 						</td>

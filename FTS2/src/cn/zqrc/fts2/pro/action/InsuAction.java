@@ -83,7 +83,7 @@ public class InsuAction extends BaseAction<Insu>{
 		message.setUser(insu.getProject().getCreatUser());
 		messageService.save(message);
 		
-		return "project_insping";
+		return "toproject_insping";
 	}
 	
 	/**

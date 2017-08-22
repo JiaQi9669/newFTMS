@@ -159,7 +159,7 @@ public class LogisAction extends BaseAction<Logis>{
 		messageService.save(message);
 		
 		
-		return "projectloginsing";
+		return "toprojectloginsing";
 	}
 	
 	 public List<File> getImage() {

@@ -41,6 +41,14 @@ public class BarAction extends BaseAction<Project>{
 	}
 	
 	/**
+	 * 欢迎界面
+	 */
+	public String toWelcome(){
+		return "welcome";
+	}
+	
+	
+	/**
 	 *  员工管理
 	 *  显示出所有员工信息
 	 *  跳转到员工管理界面   staffSetting
@@ -64,13 +72,28 @@ public class BarAction extends BaseAction<Project>{
 	public String toProjectMy(){
 //		通过id获取参与项目
 		HqlHelper helper=new HqlHelper(Project.class, "p").addOrderByProperty("id", false)
-				.addWhereCondition("p.user.id = ? or p.creatUser = "+getAdmins().getId()+" and p.isOver = '1'", getAdmins().getId());
+				.addWhereCondition("p.user.id = ? or p.creatUser = "+getAdmins().getId()+"", getAdmins().getId());
 		PageBean pageBean =projectService.getPageBean(pageNum,10, helper);
 		pageBean.setCurrentPage(pageNum);
 		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
 		return "project_my";
 	}
 	
+	/**
+	 * 我的项目
+	 * 查询我参与的项目  
+	 * 跳转到 project_my
+	 * JiaQi
+	 */
+	public String toCreatProjectMy(){
+//		通过id获取参与项目
+		HqlHelper helper=new HqlHelper(Project.class, "p").addOrderByProperty("id", false)
+				.addWhereCondition("p.user.id = ?", getAdmins().getId());
+		PageBean pageBean =projectService.getPageBean(pageNum,10, helper);
+		pageBean.setCurrentPage(pageNum);
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+		return "project_my_creat";
+	}
 	/**
 	 * 品牌管理
 	 * 查询所有品牌

@@ -107,7 +107,7 @@ public class BusinesAction extends BaseAction<Busines>{
 		message.setUser(busines.getProject().getCreatUser());
 		messageService.save(message);
 		
-		return "project_Businesing";
+		return "toproject_Businesing";
 	}
 	
 	/**

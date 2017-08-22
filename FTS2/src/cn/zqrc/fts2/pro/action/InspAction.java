@@ -130,7 +130,7 @@ public class InspAction extends BaseAction<Insp>{
 			message.setUser(project.getCreatUser());
 			messageService.save(message);
 			
-			return "projectInsp";
+			return "projectInsping";
 		}
 		
 		

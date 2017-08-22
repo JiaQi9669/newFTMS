@@ -100,6 +100,6 @@ public class BrandAction extends BaseAction<Brand>{
 		brand.setCreatuser(getAdmins());
 		brandService.save(brand);
 		ActionContext.getContext().getValueStack().set("msg", "*添加成功！");
-		return "addBrand";
+		return "toaddBrand";
 	}
 }

@@ -21,6 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</head>
 	<body>
 		<div class="rs-content center-block">
+		<div style="color: red;">${msg }</div>
 			<table class="table table-striped table-bordered table-hover text-center rs-font">
 					<thead>
 						<tr class="info">
